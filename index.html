@@ -32,6 +32,9 @@ button {
 <input type="password" id="loginPass" placeholder="Enter password"><br><br>
 
 <button onclick="login()">Login</button>
+    <p>Don't have an account?</p>
+<button onclick="goToSignup()">Signup</button>
+
 
 <script>
 function login() {
@@ -49,6 +52,8 @@ window.location.href="dashboard.html";
     }
 
 }
+    function goToSignup(){
+    window.location.href = "signup.html";
 </script>
 
 </body>

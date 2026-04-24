@@ -38,10 +38,10 @@ function signup() {
     var user = document.getElementById("username").value;
     var pass = document.getElementById("password").value;
 
-   /* if(user === "" || pass === "") {
+   if(user === "" || pass === "") {
         alert("Fill all fields");
         return;
-    } */
+    } 
 if(pass.length<6){
 alert("password must be of min 6 characters");
 return;
@@ -51,6 +51,7 @@ return;
     localStorage.setItem("password", pass);
 
     alert("Signup successful!");
+    window.location.href="index.html;
 }
 </script>
 

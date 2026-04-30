@@ -46,9 +46,17 @@ if(pass.length<6){
 alert("password must be of min 6 characters");
 return;
 }
+    let users=JSON.parse(localStorage.getItem("users")) || [];
+    let exist=users.find(u => u.username=== user);
+    if(exist){
+        alert("user already exist");
+        return;
+    }
+    users.push({username:user,password:pass});
 
-    localStorage.setItem("username", user);
-    localStorage.setItem("password", pass);
+    localStorage.setItem("users",JSON.stringify(users));
+    
+    //localStorage.setItem("password", pass);
 
     alert("Signup successful!");
     window.location.href="index.html";

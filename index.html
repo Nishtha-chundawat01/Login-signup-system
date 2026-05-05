@@ -37,28 +37,31 @@ button {
 
    
 
-
 <script>
+    let isLoggedIn = localStorage.getItem("isLoggedIn");
+
+if(isLoggedIn === "true"){
+    window.location.href = "dashboard.html";
+}
 function login() {
-    
     var user = document.getElementById("loginUser").value;
     var pass = document.getElementById("loginPass").value;
-    let users=JSON.parse(localStorage.getItem("users")) || [];
-    let validUser=users.find(u => u.username === user && u.password === pass);
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    let validUser = users.find(u => u.username === user && u.password === pass);
+
     if(validUser){
-        localStorage.setItem("isLoggedIn","true");
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("loggedInUser", user); // 🔥 important
 
-    //var savedUser = localStorage.getItem("username");
-    //var savedPass = localStorage.getItem("password");
-
-    //if(user === savedUser && pass === savedPass){
         alert("Login successful 😎");
-window.location.href="dashboard.html";
+        window.location.href = "dashboard.html";
     } else {
         alert("Invalid credentials ❌");
     }
-
 }
+
     function goToSignup(){
         alert("signup clicked");
     window.location.href = "signup.html";
